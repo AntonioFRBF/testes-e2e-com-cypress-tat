@@ -24,9 +24,7 @@ Cypress.Commands.add('guiLogin', (
   cy.get('#email').type(username)
   cy.get('#password').type(password, { log: false })
   cy.contains('button', 'Login').click()
-  cy.wait('@getNotes') // eu sei que tem de fazer essas requisições após o login
-  // mas, espera a requisição do wait acontecer, para fazer as verificações
-  // getnotes, vai buscar todas as anotações, e note vai buscar anotação em especifico
+  cy.wait('@getNotes') // eu sei que tem de fazer essas requisições após o login // mas, espera a requisição do wait acontecer, para fazer as verificações // getnotes, vai buscar todas as anotações, e note vai buscar anotação em especifico
   cy.contains('h1', 'Your Notes').should('be.visible')
 })
 
@@ -35,10 +33,7 @@ Cypress.Commands.add('sessionLogin', (
   password = Cypress.env('USER_PASSWORD')
 ) => {
   const login = () => cy.guiLogin(username, password)
-  cy.session(username, login)
-  // o primeiro argumento, o id da sessão, verificar se já existe uma sesão criadoa ou não
-  // e o id, é o usuario. se já fez o login uma vez com o usuari oque está sendo passado, se já fez, não faz de novo
-  // senão fez, ele va executar a variavel login passando as variaveis de username e password
+  cy.session(username, login) // o primeiro argumento, o id da sessão, verificar se já existe uma sesão criadoa ou não // e o id, é o usuario. se já fez o login uma vez com o usuari oque está sendo passado, se já fez, não faz de nov // senão fez, ele va executar a variavel login passando as variaveis de username e password
 })
 
 const attachFileHandler = () => {
@@ -52,9 +47,7 @@ Cypress.Commands.add('createNote', (note, attachFile = false) => {
   if (attachFile) {
     attachFileHandler()
   }
-
   cy.contains('button', 'Create').click()
-
   cy.contains('.list-group-item', note).should('be.visible')
 })
 
