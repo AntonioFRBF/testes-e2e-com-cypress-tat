@@ -27,7 +27,8 @@ describe('Scenarios where authentication is a pre-condition', () => {
 
     cy.fillSettingsFormAndSubmit()
 
-    cy.wait('@paymentRequest', 15000)
+    defaultCommandTimeout: 15000,
+    cy.wait('@paymentRequest')
       .its('state')
       .should('be.equal', 'Complete')
   })
