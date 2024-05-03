@@ -7,8 +7,6 @@ module.exports = defineConfig({
     env: {
       viewportWidthBreakpoint: 768,
     },
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
   },
+  projectId: '37a11607-9297-451b-9113-65bb3c93eae2'
 })
