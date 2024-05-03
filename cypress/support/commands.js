@@ -91,10 +91,6 @@ Cypress.Commands.add('deleteNote', note => {
     .should('not.exist') // sempre que fazemos uma verificação negativa, temos de fazer uma positiva antes
 })
 
-// cypress/support/commands.js
-
-// Outros comandos aqui ...
-
 Cypress.Commands.add('fillSettingsFormAndSubmit', () => {
   cy.visit('/settings')
   cy.get('#storage').type('1')
